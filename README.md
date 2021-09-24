@@ -2,9 +2,24 @@
 
 
 
+### Avancée du projet
+
+* BDD remplie avec tables et données
+* Page de login
+  * Connexion à un compte
+  * Vérification si le compte n'existe pas ou n'est pas valide (Boolean isValid à 0)
+* Page utilisateur
+  * Affichage des messages reçus 
+  * Déconnexion du compte
+
+* Header avec bouton de logout si une session est active
+* Fichier "logout" pour destruction de session 
 
 
-## BDD
+
+---
+
+### BDD
 
 Utilisateur
 	login(text)
@@ -24,9 +39,7 @@ Message
 
 ### QuickDBD SYNTAXE
 
-User
-
-----
+**User**
 
 idUser PK int
 login string
@@ -36,9 +49,7 @@ isAdmin boolean
 
 
 
-Message
-
-----
+**Message**
 
 idMessage PK int
 dateReception dateTime
