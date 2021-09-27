@@ -6,33 +6,36 @@ Filename    : header.php
 Description : Header
 */
 ?>
-
-<?php
-$connect = false;
-
-if(session_status() != PHP_SESSION_NONE){
-    $connect = true;
-}
-?>
-
-<style>
-    .headerBox {
-        width: 100%;
-        padding: 20px;
-        display: flex;
-        background-color: #212121;
-    }
-
-    a {
-        text-decoration: none;
-        color: #f1f1f1;
-    }
-</style>
-
-<div class="headerBox">
-    <?php
-    if($connect){
-        echo "<a href='common/logout.php'>Logout</a>";
-    }
-    ?>
-</div>
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <title>Mailbox STI</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <span class="navbar-brand mb-0 h1">Mailbox STI</span>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newMail.php">New message</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account.php">Account</a>
+                    </li>
+                    <?php if($_SESSION['admin'] === true)
+                        echo '<li class="nav-item"><a class="nav-link" href="userManager.php">'."User management".'</a></li>'
+                    ?>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    </li
+                </ul>
+            </div>
+        </nav>
