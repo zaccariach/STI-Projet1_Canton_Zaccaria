@@ -21,8 +21,20 @@ try {
     echo $e->getMessage();
 }
 include('common/header.php');
+if (isset($_SESSION['emailDeleted']) && $_SESSION['emailDeleted'] == true)
+    echo '<div class="alert alert-success" role="alert">
+                  Message supprimé !
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  </button>
+                </div>';
+else if (isset($_SESSION['emailDeleted']) && $_SESSION['emailDeleted'] == false)
+    echo '<div class="alert alert-danger" role="alert">
+                  <strong>Erreur: </strong> le message n' . "'" . 'a pas pu être supprimé ! Veuillez réessayer plus tard.
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  </button>
+                </div>';
+unset($_SESSION['emailDeleted'])
 ?>
-
 
 <table class="table">
     <thead class="thead-light">

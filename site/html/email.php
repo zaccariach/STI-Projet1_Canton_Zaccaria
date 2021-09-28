@@ -1,7 +1,7 @@
 <?php
 /*
 Author      : Dylan Canton & Christian Zaccaria
-Date        : 24.09.2021
+Date        : 28.09.2021
 Filename    : email.php
 Description : display email selected
 */
