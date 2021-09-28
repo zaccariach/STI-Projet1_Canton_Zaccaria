@@ -30,7 +30,7 @@ Description : Header
                         <a class="nav-link" href="account.php">Account</a>
                     </li>
                     <?php if($_SESSION['isAdmin'] == true)
-                        echo '<li class="nav-item"><a class="nav-link" href="userManager.php">User management</a></li>'
+                        echo '<li class="nav-item"><a class="nav-link" href="usersManager.php">Users management</a></li>'
                     ?>
                 </ul>
                 <ul class="navbar-nav ml-auto">

@@ -21,22 +21,16 @@ try {
     echo $e->getMessage();
 }
 include('common/header.php');
+
+//Here for message when you delete a email
 if (isset($_SESSION['emailDeleted']) && $_SESSION['emailDeleted'] == true)
-    echo '<div class="alert alert-success" role="alert">
-                  Message supprimé !
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  </button>
-                </div>';
+    echo '<div class="alert alert-success" role="alert">Message supprimé ! </div>';
 else if (isset($_SESSION['emailDeleted']) && $_SESSION['emailDeleted'] == false)
-    echo '<div class="alert alert-danger" role="alert">
-                  <strong>Erreur: </strong> le message n' . "'" . 'a pas pu être supprimé ! Veuillez réessayer plus tard.
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  </button>
-                </div>';
+    echo '<div class="alert alert-danger" role="alert"><strong>Erreur: </strong> le message n' . "'" . 'a pas pu être supprimé ! Veuillez réessayer plus tard.</div>';
 unset($_SESSION['emailDeleted'])
 ?>
 
-<table class="table">
+<table class="table text-center">
     <thead class="thead-light">
         <tr>
             <th scope="col">Date</th>
@@ -54,7 +48,7 @@ unset($_SESSION['emailDeleted'])
         echo "<td>".$message['subject']."</td>";
         echo "<td>";
         echo '<div class="btn-group-vertical btn-group-sm pt-1">
-                <a href="email.php?id='.$message['idMessage'].'" class="btn btn-secondary btn-info" role="button">Details</a>
+                <a href="email.php?id='.$message['idMessage'].'" class="btn btn-primary" role="button">Details</a>
                 <a href="newEmail.php?id='.$message['idMessage'].'" class="btn btn-secondary btn-warning" role="button">Repondre</a>
                 <a href="deleteEmail.php?id='.$message['idMessage'].'" class="btn btn-secondary btn-danger" role="button">Supprimer</a>
             </div>';

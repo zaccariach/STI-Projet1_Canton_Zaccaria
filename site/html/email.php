@@ -19,7 +19,8 @@ try {
 }
 include('common/header.php');
 ?>
-<div class="container pl-5 ml-5">
+<div class="container  text-center">
+    <br>
     <div class="row">
         <div class="col-8">
             <table class="table">

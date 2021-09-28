@@ -16,6 +16,9 @@ try{
         $pdo->query("UPDATE User SET password=".'"'.$_POST['password'].'"'." WHERE username=".'"'.$_SESSION['username'].'"');
         $_SESSION['passwordEdited'] = true;
     }
+    else if(!isset($_POST['newPassword'])){
+        $_SESSION['passwordEdited'] = false;
+    }
 } catch(PDOException $e){
     echo $e->getMessage();
 }
@@ -24,10 +27,13 @@ include("common/header.php");
 ?>
 <div class="text-center">
     <br>
-    <?php if(isset($_SESSION['passwordEdited']) && $_SESSION['passwordEdited'] == true){
-        echo "Nouveau mot de passe appliqué!";
-        unset($_SESSION['passwordEdited']);
-    } ?>
+    <?php
+    if(isset($_SESSION['passwordEdited']) && $_SESSION['passwordEdited'] == true)
+        echo '<div class="alert alert-success" role="alert">Mot de passe modifié ! </div>';
+    else if(!isset($_SESSION['passwordEdited']) && $_SESSION['passwordEdited'] == false)
+        echo '<div class="alert alert-danger" role="alert">Impossible de modifier le mot de passe ! </div>';
+    unset($_SESSION['passwordEdited']);
+    ?>
     <h3><strong>Username : </strong><?php echo $_SESSION['username'];?></h3>
     <h3><strong>Role : </strong>
         <?php if($_SESSION['isAdmin'] == 0): echo "Collaborateur"; else : echo "Administrateur"; endif;?></h3>

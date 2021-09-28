@@ -11,8 +11,8 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false){
 }
 include("common/dbConnect.php");
 
-$user = $password = $isActive = $isAdmin = $msgError = "";
-
+$user = $password = $isActive = $isAdmin = "";
+$msgError = false;
 /* Checking form */
 if(isset($_POST['submitUser'])){
     /* Checking if user exists and add user and password on variable */
@@ -23,20 +23,20 @@ if(isset($_POST['submitUser'])){
                 $user = $_POST['username'];
                 $password = $_POST['password'];
             } else {
-                $msgError = "Indiquez un mot de passe !";
+                $msgError = true;
             }
         } else{
-            $msgError = "Utilisateur déjà existant !";
+            $msgError = true;
         }
     } else{
-        $msgError = "Indiquez un nom d'utilisateur !";
+        $msgError = true;
     }
 
     $isActive = $_POST['isActive'];
     $isAdmin = $_POST['isAdmin'];
 
     /* If all infos are insered, we try to add in db */
-    if(empty($msgError)){
+    if(!($msgError)){
         try{
             $pdo->query("INSERT INTO User (username, password, isValid, isAdmin) VALUES ('".$user."','".$password."','".$isActive."','".$isAdmin."')")->fetch();
             $_SESSION['userAdded'] = true;
@@ -46,14 +46,13 @@ if(isset($_POST['submitUser'])){
     }
     else{
         $_SESSION['userAdded'] = false;
-        $_SESSION['msgError'] = $msgError;
-        $msgError = "";
     }
-    header('location: home.php');
+    header('location: usersManager.php');
 }
 
 include('common/header.php');
 ?>
+<br>
     <div class="text-center">
         <form class="mx-5 px-2">
             <div class="form-row">
@@ -81,7 +80,7 @@ include('common/header.php');
                 </div>
             </div>
             <button type="submit" class="btn btn-primary" formmethod="post" name="submitUser">Ajouter l'utilisateur</button>
-            <a href="manageUser.php" class="btn btn-primary" role="button">Annuler</a>
+            <a href="usersManager.php" class="btn btn-primary" role="button">Annuler</a>
         </form>
     </div>
 <?php include('common/footer.php');?>
