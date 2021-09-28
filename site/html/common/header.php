@@ -12,6 +12,7 @@ Description : Header
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-grid.css">
         <title>Mailbox STI</title>
     </head>
     <body>
@@ -28,8 +29,8 @@ Description : Header
                     <li class="nav-item">
                         <a class="nav-link" href="account.php">Account</a>
                     </li>
-                    <?php if($_SESSION['admin'] === true)
-                        echo '<li class="nav-item"><a class="nav-link" href="userManager.php">'."User management".'</a></li>'
+                    <?php if($_SESSION['isAdmin'] == true)
+                        echo '<li class="nav-item"><a class="nav-link" href="userManager.php">User management</a></li>'
                     ?>
                 </ul>
                 <ul class="navbar-nav ml-auto">

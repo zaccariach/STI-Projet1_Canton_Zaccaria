@@ -43,6 +43,7 @@ if(isset($_POST["login"])) {
                     $_SESSION['password'] = $loginResult[0]['password'];
                     $_SESSION['isValid']  = $loginResult[0]['isValid'];
                     $_SESSION['isAdmin']  = $loginResult[0]['isAdmin'];
+                    $_SESSION['logged'] = true;
 
                     header('location: home.php');
                 }

@@ -5,88 +5,51 @@ Date        : 24.09.2021
 Filename    : home.php
 Description : Homepage for user, display received messages
 */
-?>
 
-<?php
-//Start the session
 session_start();
-
-//Display sessions variables (for information purpose only)
-/*
-echo "Id       : ".$_SESSION['idUser']."<br/>";
-echo "Username : ".$_SESSION['username']."<br/>";
-echo "Password : ".$_SESSION['password']."<br/>";
-echo "Valide   : ".$_SESSION['isValid']."<br/>";
-echo "Admin    : ".$_SESSION['isAdmin']."<br/>";
-*/
-
-//Connect to BDD
-try{
-    $pdo = new PDO('sqlite:/usr/share/nginx/databases/database.sqlite');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-} catch(Exception $e) {
-    echo "Impossible d'accéder à la base de données SQLite : ".$e->getMessage();
-    die();
+if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false){
+    header('location: login.php');
 }
+include("common/dbConnect.php");
 
-//Execute query to get messages
-$query = $pdo->prepare('SELECT * FROM Message WHERE receiver = ?');
-$query->execute(array($_SESSION['username']));
-$messageList = $query->fetchAll();
+try {
+    //Execute query to get messages
+    $query = $pdo->prepare('SELECT * FROM Message WHERE receiver = ? ORDER BY dateReception DESC, sender');
+    $query->execute(array($_SESSION['username']));
+    $messageList = $query->fetchAll();
+} catch(PDOException $e){
+    echo $e->getMessage();
+}
+include('common/header.php');
 ?>
 
-<html>
-<head>
-    <style>
-        body {
-            margin: 0; padding: 0;
-        }
 
-        table {
-            margin-top: 3%;
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 80%;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: center;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-</head>
-
-<body>
-<?php include 'common/header.php';?>
-
-<table>
-    <tr>
-        <th>Date</th>
-        <th>Expediteur</th>
-        <th>Sujet</th>
-        <th>Action</th>
-    </tr>
-    <?php foreach($messageList as $message){?>
-    <tr>
-        <td><?php echo $message['dateReception'];?></td>
-        <td><?php echo $message['sender'];?></td>
-        <td><?php echo $message['subject'];?></td>
-        <td>
-            <p>Repondre</p>
-            <p>Supprimer</p>
-            <p>Lire</p>
-        </td>
-
-    </tr>
-    <?php } ?>
-
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Expediteur</th>
+            <th scope="col">Sujet</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach($messageList as $message){
+        echo "<tr>";
+        echo "<td>".$message['dateReception']."</td>";
+        echo "<td>".$message['sender']."</td>";
+        echo "<td>".$message['subject']."</td>";
+        echo "<td>";
+        echo '<div class="btn-group-vertical btn-group-sm pt-1">
+                <a href="email.php?id='.$message['idMessage'].'" class="btn btn-secondary btn-info" role="button">Details</a>
+                <a href="newEmail.php?id='.$message['idMessage'].'" class="btn btn-secondary btn-warning" role="button">Repondre</a>
+                <a href="deleteEmail.php?id='.$message['idMessage'].'" class="btn btn-secondary btn-danger" role="button">Supprimer</a>
+            </div>';
+        echo "</td>";
+        echo "</tr>";
+    }
+    ?>
+    </tbody>
 </table>
-</body>
-</html>
-
-
+<?php include('common/footer.php');?>
