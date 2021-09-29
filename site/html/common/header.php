@@ -24,7 +24,7 @@ Description : Header
                         <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="newMail.php">New message</a>
+                        <a class="nav-link" href="newEmail.php">New message</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="account.php">Account</a>

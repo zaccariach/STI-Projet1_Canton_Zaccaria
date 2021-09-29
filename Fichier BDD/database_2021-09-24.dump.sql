@@ -9,7 +9,7 @@ BEGIN TRANSACTION;
 ----
 -- Table structure for Message
 ----
-CREATE TABLE 'Message' ('idMessage' INTEGER PRIMARY KEY NOT NULL, 'dateReception' DATETIME NOT NULL, 'sender' TEXT NOT NULL, 'receiver' TEXT NOT NULL, 'subject' TEXT, 'text' TEXT);
+CREATE TABLE 'Message' ('idMessage' INTEGER PRIMARY KEY NOT NULL, 'dateReception' DATETIME DEFAULT CURRENT_TIMESTAMP, 'sender' TEXT NOT NULL, 'receiver' TEXT NOT NULL, 'subject' TEXT, 'text' TEXT);
 
 ----
 -- Data dump for Message, a total of 3 rows
