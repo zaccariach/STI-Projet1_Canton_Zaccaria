@@ -66,17 +66,17 @@ include('common/header.php');
             <div class="form-row">
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" id="inactiveUser" name="isActive" value="0" checked>
-                    <label class="form-check-label" for="validN">Compte inactif</label><br>
+                    <label class="form-check-label" for="inactiveUser">Compte inactif</label><br>
                     <input type="radio" class="form-check-input" id="activeUser" name="isActive" value="1">
-                    <label class="form-check-label" for="validY">Compte actif</label>
+                    <label class="form-check-label" for="activeUser">Compte actif</label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" id="roleCollaborateur" name="isAdmin" value="0" checked>
-                    <label class="form-check-label" for="roleC">Collaborateur</label>
+                    <label class="form-check-label" for="roleCollaborateur">Collaborateur</label>
                     <input type="radio" class="form-check-input" id="roleAdministrateur" name="isAdmin" value="1">
-                    <label class="form-check-label" for="roleA">Administrateur</label>
+                    <label class="form-check-label" for="roleAdministrateur">Administrateur</label>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary" formmethod="post" name="submitUser">Ajouter l'utilisateur</button>
