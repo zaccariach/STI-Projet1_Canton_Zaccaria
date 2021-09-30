@@ -66,4 +66,5 @@ include('common/header.php');
         <a href="usersManager.php" class="btn btn-primary" role="button">Annuler</a>
     </form>
 </div>
+
 <?php include("common/footer.php");?>

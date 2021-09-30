@@ -5,6 +5,7 @@ Date        : 28.09.2021
 Filename    : newEmail.php
 Description : Page for write a new email
 */
+
 session_start();
 if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false){
     header('location: login.php');
@@ -83,4 +84,5 @@ include("common/header.php");
     } ?>
     <a href="home.php" class="btn btn-primary" role="button">Retour</a>
 </div>
+
 <?php include("common/footer.php");?>

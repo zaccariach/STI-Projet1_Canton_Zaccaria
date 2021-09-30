@@ -2,13 +2,15 @@
 /*
 Author      : Dylan Canton & Christian Zaccaria
 Date        : 28.09.2021
-Filename    : delete.php
+Filename    : deleteEmail.php
 Description : delete an email
 */
+
 session_start();
 if(!isset($_SESSION['logged']) || $_SESSION['logged'] === false){
     header('location: login.php');
 }
+
 include("common/dbConnect.php");
 
 try{

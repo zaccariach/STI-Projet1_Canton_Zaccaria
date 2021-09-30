@@ -6,6 +6,7 @@ Filename    : header.php
 Description : Header
 */
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -35,7 +36,7 @@ Description : Header
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link" href="common/logout.php">Logout</a>
                     </li
                 </ul>
             </div>

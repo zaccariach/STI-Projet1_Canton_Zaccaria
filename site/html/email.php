@@ -5,10 +5,12 @@ Date        : 28.09.2021
 Filename    : email.php
 Description : display email selected
 */
+
 session_start();
 if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false){
     header('location: login.php');
 }
+
 include("common/dbConnect.php");
 
 try {
@@ -17,6 +19,7 @@ try {
 } catch(PDOException $e){
     echo $e->getMessage();
 }
+
 include('common/header.php');
 ?>
 <div class="container  text-center">
@@ -51,4 +54,5 @@ include('common/header.php');
     </div>
     <a href="home.php" class="btn btn-primary" role="button">Retour</a>
 </div>
+
 <?php include('common/footer.php') ?>

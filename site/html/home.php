@@ -10,6 +10,7 @@ session_start();
 if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false){
     header('location: login.php');
 }
+
 include("common/dbConnect.php");
 
 try {
@@ -20,6 +21,7 @@ try {
 } catch(PDOException $e){
     echo $e->getMessage();
 }
+
 include('common/header.php');
 
 //Here for message when you delete a email
@@ -58,4 +60,5 @@ unset($_SESSION['emailDeleted'])
     ?>
     </tbody>
 </table>
+
 <?php include('common/footer.php');?>

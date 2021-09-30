@@ -5,9 +5,8 @@ Date        : 24.09.2021
 Filename    : logout.php
 Description : Destroy session and return to login page
 */
-?>
+session_start();
 
-<?php
 //Session Destroy
 session_destroy();
 

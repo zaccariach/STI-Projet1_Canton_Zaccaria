@@ -5,10 +5,12 @@ Date        : 28.09.2021
 Filename    : account.php
 Description : Page of user account
 */
+
 session_start();
 if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false){
     header('location: login.php');
 }
+
 include("common/dbConnect.php");
 
 try{
@@ -24,6 +26,7 @@ try{
 }
 
 include("common/header.php");
+
 ?>
 <div class="text-center">
     <br>
@@ -45,4 +48,5 @@ include("common/header.php");
     <br>
     <a href="home.php" class="btn btn-danger" role="button">Retour aux messages</a>
 </div>
+
 <?php include("common/footer.php");?>

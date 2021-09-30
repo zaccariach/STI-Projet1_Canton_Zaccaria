@@ -65,4 +65,5 @@ unset($_SESSION['userAdded']); ?>
     <a href="addUser.php" class="btn btn-info" role="button">Créer un nouvel utilisateur</a>
     <a href="home.php" class="btn btn-primary" role="button">Retour</a>
 </div>
+
 <?php include('common/footer.php')?>

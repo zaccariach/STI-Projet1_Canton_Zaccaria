@@ -5,10 +5,12 @@ Date        : 28.09.2021
 Filename    : addUser.php
 Description : Page for adding a new user on mailbox
 */
+
 session_start();
 if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false){
     header('location: login.php');
 }
+
 include("common/dbConnect.php");
 
 $user = $password = $isActive = $isAdmin = "";
@@ -51,6 +53,7 @@ if(isset($_POST['submitUser'])){
 }
 
 include('common/header.php');
+
 ?>
 <br>
     <div class="text-center">
@@ -83,4 +86,5 @@ include('common/header.php');
             <a href="usersManager.php" class="btn btn-primary" role="button">Annuler</a>
         </form>
     </div>
+
 <?php include('common/footer.php');?>
