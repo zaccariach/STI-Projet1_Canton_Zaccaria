@@ -17,12 +17,14 @@ $user = $password = $isActive = $isAdmin = "";
 $msgError = false;
 /* Checking form */
 if(isset($_POST['submitUser'])){
+    /*Sanitize string*/
+    $temp_user = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
     /* Checking if user exists and add user and password on variable */
-    $checkuser = $pdo->query("SELECT * FROM User WHERE username=\"".$_POST['username']."\"")->fetch();
+    $checkuser = $pdo->query("SELECT * FROM User WHERE username=\"".$temp_user."\"")->fetch();
     if(!empty($_POST['username'])){
         if(!$checkuser){
-            if(!empty($_POST['password'])){
-                $user = $_POST['username'];
+            if(!empty($temp_user)){
+                $user = $temp_user;
                 $password = $_POST['password'];
             } else {
                 $msgError = true;

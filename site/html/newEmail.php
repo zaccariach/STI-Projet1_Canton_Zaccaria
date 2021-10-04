@@ -27,18 +27,18 @@ if(isset($_GET['id'])){
 
 if(isset($_POST['submitEmail'])){
     if(!empty($_POST['receiver'])){
-        $receiver = $_POST['receiver'];
+        $receiver = filter_var($_POST['receiver'], FILTER_SANITIZE_STRING);
     } else {
         $receiver_err = "Destinataire requis !";
     }
 
     if(!empty($_POST['subject'])){
-        $subject = $_POST['subject'];
+        $subject = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
     } else {
         $subject_err = "Sujet requis !";
     }
     if(!empty($_POST['content'])){
-        $content = $_POST['content'];
+        $content = filter_var($_POST['content'], FILTER_SANITIZE_STRING);
     } else {
         $content_err = "Message vide !";
     }

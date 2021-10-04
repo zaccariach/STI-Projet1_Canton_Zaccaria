@@ -19,7 +19,7 @@ $message = "";
 
 if(isset($_POST["login"])) {
     //Get informations from login form
-    $username = $_POST['username'];
+    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
     $password = $_POST['password'];
 
     //Check if form is empty
