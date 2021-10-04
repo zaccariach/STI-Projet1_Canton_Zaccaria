@@ -16,8 +16,13 @@ include("common/dbConnect.php");
 try{
     $user = $pdo->query("SELECT username FROM User WHERE username=\"".$_GET['username']."\"")->fetch();
     if(!empty($user['username'])){
-        $pdo->query("DELETE FROM User WHERE username=\"".$_GET['username']."\"");
-        $_SESSION['userDeleted'] = true;
+        if($user['username'] == $_SESSION['username']){
+            $_SESSION['userDeleted'] = false;
+        }
+        else{
+            $pdo->query("DELETE FROM User WHERE username=\"".$_GET['username']."\"");
+            $_SESSION['userDeleted'] = true;
+        }
     } else {
         $_SESSION['userDeleted'] = false;
     }
