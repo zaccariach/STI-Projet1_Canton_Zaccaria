@@ -2,7 +2,7 @@
 
 ###### Christian Zaccaria & Dylan Canton
 
-###### 30.09.2021
+###### Date : 30.09.2021
 
 ---
 
@@ -25,3 +25,15 @@ A ce stade, le container docker est fonctionnel et contient tous les fichiers n�
 ### 2. Accéder à l'application web
 
 * L'application web est accessible à l'adresse `localhost:8080` sur votre navigateur. 
+
+### 3. Identifiants
+
+Voici la liste des identifiants créés, ces derniers sont soit *actif* ou *inactif*, de plus différents e-mail de tests ont été déjà générés.
+
+| Username | Password | Statut du compte et rôle |
+| :------: | :------: | :----------------------: |
+|  dylan   | sti2021  |  Actif + Administrateur  |
+|  chris   | sti2021  |   Actif + Utilisateur    |
+| abraham  | sti2021  | Inactif + Administrateur |
+|  steph   | sti2021  |   Actif + Utilisateur    |
+

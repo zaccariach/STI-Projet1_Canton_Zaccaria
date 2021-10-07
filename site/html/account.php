@@ -3,7 +3,7 @@
 Author      : Dylan Canton & Christian Zaccaria
 Date        : 28.09.2021
 Filename    : account.php
-Description : Page of user account
+Description : Page of user account, keep info of user logged
 */
 
 session_start();

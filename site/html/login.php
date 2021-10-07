@@ -67,6 +67,7 @@ if(isset($_POST["login"])) {
         <title>Login Mailbox STI</title>
     </head>
     <body class="text-center">
+        <img src="resources/image.jpg">
         <form class="form-signin">
             <h1 class="h3 mb-3 font-weight-normal">Login MailBox STI</h1>
             <div class="form-group">
