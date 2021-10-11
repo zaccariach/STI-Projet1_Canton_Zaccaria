@@ -81,4 +81,4 @@ if(isset($_POST["login"])) {
             </div>
         </form>
         <div class="errorMsg"><?php echo $message;?></div>
-        <?php include ('location: footer.php');?>
+<?php include ('location: footer.php');?>

@@ -21,7 +21,7 @@ if(isset($_GET['id'])){
     if($_SESSION['username'] == $emailDetails['receiver']){
         $receiver = $emailDetails['sender'];
         $subject = "RE: ".$emailDetails['subject'];
-        $content = "\n\n------------------------------------------------------------\nDe : ".$receiver."\nEnvoyé le : ".$emailDetails['dateReception']."\nSujet : ".$emailDetails['subject']."\nMessage : ".$emailDetails['text'];
+        $content = "\r\n------------------------------------------------------------\r\n De : ".$receiver."\r\nEnvoyé le : ".$emailDetails['dateReception']."\r\nSujet : ".$emailDetails['subject']."\r\nMessage : ".$emailDetails['text'];
     }
 }
 

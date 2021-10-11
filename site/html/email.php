@@ -41,14 +41,14 @@ include('common/header.php');
                 </tr>
                 <tr>
                     <th>Message:</th>
-                    <td><?php echo $message['text']?></td>
+                    <td><?php echo nl2br($message['text'])?></td>
                 </tr>
             </table>
         </div>
         <div class="col-4">
             <div class="btn-group-vertical btn-group pt-1">
                 <a href="newEmail.php?id=<?php echo $_GET['id'] ?>" class="btn btn-secondary btn-warning" role="button">Repondre</a>
-                <a href="delMessage.php?id=<?php echo $_GET['id']?>" class="btn btn-secondary btn-danger" role="button">Supprimer</a>
+                <a href="deleteEmail.php?id=<?php echo $_GET['id']?>" class="btn btn-secondary btn-danger" role="button">Supprimer</a>
             </div>
         </div>
     </div>
