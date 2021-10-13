@@ -10,14 +10,13 @@
 
 * Il est tout d'abord nécessaire d'avoir un Docker fonctionnel sur la machine. 
 
-* Lancer ensuite le script `run-services.sh` qui se trouve dans le dossier `STI-Projet1_Canton_Zaccaria`. Ce script : 
+* Lancer ensuite le script `run-services.sh` qui se trouve à la racine, ce script : 
   * Supprime le container `sti_project` si celui-ci est déjà existant.
   * Lance un container docker nommé `sti_project` et effectue un mapping du port 8080 de la machine hôte vers le port 80 du container.
   * Copie les fichiers de l'application web et de la base de donnée dans le container.
   * Pour finir, lance le service web ainsi que le service PHP.
 
 A ce stade, le container docker est fonctionnel et contient tous les fichiers nécessaires à l'application web.
-
 
 
 ## 2. Accéder à l'application web
@@ -129,7 +128,7 @@ Lors du clic sur `Créer un nouvel utilisateur`, il faut ajouter :
 
 ## 5. FAQ
 
-Il est possible qu'il soit impossible d'ouvrir l'application web, il est très probable alors qu'un service utilise déjà le port `8080`. 
+Il se peut qu'il soit impossible d'ouvrir l'application web, il est très probable alors qu'un service utilise déjà le port `8080`. 
 
 Pour modifier le port, il est nécessaire de modifier le script `run-services.sh` en modifiant le port (par exemple par le port `8090`). Voici la commande à modifier :
 
