@@ -10,7 +10,7 @@
 
 * Il est tout d'abord nécessaire d'avoir un Docker fonctionnel sur la machine. 
 
-* Lancer ensuite le script `run-services.sh` qui se trouve à la racine, ce script : 
+* Lancer ensuite le script `run-services.sh`, ce script : 
   * Supprime le container `sti_project` si celui-ci est déjà existant.
   * Lance un container docker nommé `sti_project` et effectue un mapping du port 8080 de la machine hôte vers le port 80 du container.
   * Copie les fichiers de l'application web et de la base de donnée dans le container.
