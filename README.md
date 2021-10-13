@@ -83,7 +83,7 @@ Lorsqu'on répond à un message (à travers le détail du message / dans l'accue
 
 ### Compte 
 
-Il est possible de visualiser les informations du compte en cliquant dans le menu le bouton **Account**. 
+Il est possible de visualiser les informations du compte en cliquant dans le menu sur le bouton **Account**. 
 
 On peut y voir les informations relatives au compte ainsi que de changer son mot de passe en remplissant le champ encadré en rouge et cliquez **Changer le mot de passe**.
 
